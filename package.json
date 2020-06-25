@@ -5,6 +5,10 @@
   "repository": "https://github.com/nmurata0418/-Environment.git",
   "author": "直樹 村田 <5727725-NM418@users.noreply.gitlab.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "set NODE_ENV=developmen&&webpack-dev-server",
+    "build": "set NODE_ENV=production&&webpack"
+  },
   "devDependencies": {
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
