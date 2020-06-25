@@ -4,5 +4,10 @@
   "main": "index.js",
   "repository": "https://github.com/nmurata0418/-Environment.git",
   "author": "直樹 村田 <5727725-NM418@users.noreply.gitlab.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
 }
