@@ -1,0 +1,8 @@
+{
+  "name": "-Environment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nmurata0418/-Environment.git",
+  "author": "直樹 村田 <5727725-NM418@users.noreply.gitlab.com>",
+  "license": "MIT"
+}
