@@ -3,7 +3,7 @@ const MODE = process.env.NODE_ENV;
 const enabledSourceMap = MODE === "development";
 
 module.exports = {
-    mode: development,
+    mode: "development",
     entry: './src/js/index.js',
 
     module: {
