@@ -3,13 +3,13 @@ const MODE = process.env.NODE_ENV;
 const enabledSourceMap = MODE === "development";
 
 module.exports = {
-    mode: "development",
+    mode: MODE,
     entry: './src/js/index.js',
 
     module: {
         rules: [
             {
-                test:/\.css/,
+                test:/\.scss/,
                 use: [
                     "style-loader",
                     {
@@ -19,14 +19,14 @@ module.exports = {
                             sourceMap: enabledSourceMap,
                             importLoaders: 2
                         }
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: enabledSourceMap
+                        }
                     }
                 ]
-            },
-            {
-                loader: "sass-loader",
-                options: {
-                    sourceMap: enabledSourceMap
-                }
             },
             {
                 test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
