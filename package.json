@@ -1,12 +1,12 @@
 {
-  "name": "-Environment",
+  "name": "environment",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/nmurata0418/-Environment.git",
   "author": "直樹 村田 <5727725-NM418@users.noreply.gitlab.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "set NODE_ENV=developmen&&webpack-dev-server",
+    "dev": "set NODE_ENV=development&&webpack-dev-server",
     "build": "set NODE_ENV=production&&webpack"
   },
   "devDependencies": {
