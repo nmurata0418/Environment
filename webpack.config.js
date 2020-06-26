@@ -1,9 +1,39 @@
 const path = require('path');
 const MODE = process.env.NODE_ENV;
+const enabledSourceMap = MODE === "development";
 
 module.exports = {
-    mode: MODE,
+    mode: development,
     entry: './src/js/index.js',
+
+    module: {
+        rules: [
+            {
+                test:/\.css/,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            url: false,
+                            sourceMap: enabledSourceMap,
+                            importLoaders: 2
+                        }
+                    }
+                ]
+            },
+            {
+                loader: "sass-loader",
+                options: {
+                    sourceMap: enabledSourceMap
+                }
+            },
+            {
+                test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
+                loader: "url-loader"
+            }
+        ]
+    },
 
     output: {
     path: path.join(__dirname, 'dist'),
