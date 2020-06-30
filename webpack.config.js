@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MODE = process.env.NODE_ENV;
 const enabledSourceMap = MODE === "development";
 
@@ -6,10 +7,15 @@ module.exports = {
     mode: MODE,
     entry: './src/js/index.js',
 
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: 'js/[name].js',
+        },
+
     module: {
         rules: [
             {
-                test:/\.scss/,
+                test:/\.scss$/,
                 use: [
                     "style-loader",
                     {
@@ -29,16 +35,32 @@ module.exports = {
                 ]
             },
             {
+                test: /\.js$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env'],
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
+            {
                 test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
                 loader: "url-loader"
             }
         ]
     },
-
-    output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'js/[name].js',
-    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/html/index.html',
+            filename: './html/index.html'
+        }),
+    ],
 
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
