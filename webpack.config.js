@@ -92,10 +92,7 @@ module.exports = {
                 test: /\.html$/,
                 loader: 'html-loader'
             },
-            {
-                test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
-                loader: "img-loader"
-            }
+            imgLoader
         ]
     },
     plugins: [
